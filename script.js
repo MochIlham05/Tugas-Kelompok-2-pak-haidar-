@@ -1,75 +1,54 @@
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f9f9f9;
-  margin: 0;
-  padding: 0;
-  line-height: 1.6;
-  color: #333;
-}
+// Smooth scroll untuk anchor link di navbar
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
+  });
+});
 
-/* Navbar */
-.navbar {
-  background-color: #0d6efd; /* biru bootstrap */
-  border: none;
-  border-radius: 0;
-}
+// Tombol interaktif (misalnya tombol dengan class .btn-primary)
+document.querySelectorAll('.btn-primary').forEach(button => {
+  button.addEventListener('mouseenter', () => {
+    button.style.transform = 'scale(1.05)';
+  });
+  button.addEventListener('mouseleave', () => {
+    button.style.transform = 'scale(1)';
+  });
+});
 
-.navbar a {
-  color: #fff !important;
-}
+// Modal galeri sederhana (opsional jika kamu punya galeri)
+const images = document.querySelectorAll('.card img');
+const modal = document.createElement('div');
+modal.style.display = 'none';
+modal.style.position = 'fixed';
+modal.style.top = '0';
+modal.style.left = '0';
+modal.style.width = '100%';
+modal.style.height = '100%';
+modal.style.backgroundColor = 'rgba(0,0,0,0.8)';
+modal.style.justifyContent = 'center';
+modal.style.alignItems = 'center';
+modal.style.zIndex = '9999';
 
-.navbar a:hover {
-  background-color: #084298 !important;
-  color: #fff !important;
-}
+const modalImg = document.createElement('img');
+modalImg.style.maxWidth = '90%';
+modalImg.style.maxHeight = '90%';
+modal.appendChild(modalImg);
+document.body.appendChild(modal);
 
-/* Heading */
-h1, h2, h3, h4, h5 {
-  color: #0d6efd;
-  font-weight: bold;
-}
+images.forEach(img => {
+  img.style.cursor = 'pointer';
+  img.addEventListener('click', () => {
+    modalImg.src = img.src;
+    modal.style.display = 'flex';
+  });
+});
 
-/* Tombol */
-.btn-primary {
-  background-color: #0d6efd;
-  border: none;
-  border-radius: 25px;
-  padding: 10px 20px;
-  transition: background-color 0.3s ease;
-}
-
-.btn-primary:hover {
-  background-color: #084298;
-}
-
-/* Kontainer konten */
-.container {
-  margin-top: 30px;
-  margin-bottom: 30px;
-}
-
-/* Kartu untuk galeri atau team */
-.card {
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  padding: 20px;
-  margin-bottom: 20px;
-  transition: transform 0.2s ease;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-}
-
-/* Gambar */
-img {
-  max-width: 100%;
-  border-radius: 10px;
-}
-
-/* Footer */
-footer {
-  background-color: #0d6efd;
-  color: #fff;
-  text-align: center;
+modal.addEventListener('click', () => {
+  modal.style.display = 'none';
+});
