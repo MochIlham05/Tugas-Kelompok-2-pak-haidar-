@@ -1,0 +1,23 @@
+.navbar {
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease;
+}
+
+/* Navbar disembunyikan (geser ke atas) */
+.navbar.hidden {
+    transform: translateY(-100%);
+}
+
+.navbar {
+    background-color: rgb(0, 91, 144) !important;
+}
+
+a.btn-primary {
+    background-color: rgb(0, 91, 144) !important; /* ubah warna background */
+    border-color: rgb(0, 91, 144) !important;
+    color: white !important; /* warna teks */
+}
+
+a.btn-primary:hover {
+    background-color: rgb(30, 129, 186) !important;
+    border-color: rgb(30, 129, 186) !important;
+}

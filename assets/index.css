@@ -8,6 +8,14 @@
     transition: background-color 0.3s ease;
 }
 
+.navbar {
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease;
+}
+
+/* Navbar disembunyikan (geser ke atas) */
+.navbar.hidden {
+    transform: translateY(-100%);
+}
 
 
 /* Saat discroll lebih jauh, biar makin jelas */
