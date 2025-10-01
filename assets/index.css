@@ -1,0 +1,35 @@
+.navbar {
+    background-color: rgba(255, 255, 255, 0) !important; /* putih transparan 20% */
+    backdrop-filter: blur(8px); /* efek kaca */
+    -webkit-backdrop-filter: blur(8px);
+    position: fixed; /* biar nempel di atas hero */
+    width: 100%;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+
+
+/* Saat discroll lebih jauh, biar makin jelas */
+.scrolled {
+  background-color: rgba(255, 255, 255, 0.9) !important; /* hampir putih solid */
+}
+
+
+/* Hero section */
+.hero {
+    height: 100vh; /* layar penuh */
+    background: url("slopeng1.jpeg") no-repeat center center/cover; /* ganti gambar.jpg */
+    position: relative;
+}
+
+/* Overlay teks biar jelas */
+.hero .overlay {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+}
